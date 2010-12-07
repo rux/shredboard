@@ -105,10 +105,59 @@ while (1):
 					
 					current_letter = letter_number
 		else:
+			# if the strum is just released, sleep to stop bounce and repeat characters
+			if (current_letter != ""):
+				sleep(0.075) 
 			#reset the current letter to nothing, to allow repeat characters
 			current_letter = ""
-			# pause to stop bounce-back from the strumming
-			sleep(0.06) 
+
+			
+		
+			# with no strum, but the first button held down, we change the behaviour of the stick to be arrow keys
+			if (state & 16):
+				
+				# joystick deals with delete, Upper Case, comma and full stop
+				if (joystick_centered == True) & (joystick[0] < 12 ):
+					call ( ["/usr/bin/xdotool",  "key", "Right"] )
+					joystick_centered = False
+				
+				if (joystick_centered == True) & (joystick[0] > 52 ):
+					call ( ["/usr/bin/xdotool",  "key", "Left"] )
+					joystick_centered = False
+				
+				if (joystick_centered == True) & (joystick[1] < 12 ):
+					call ( ["/usr/bin/xdotool",  "key", "Down"] )
+					joystick_centered = False
+				
+				if (joystick_centered == True) & (joystick[1] > 52 ):
+					call ( ["/usr/bin/xdotool",  "key", "Up"] )
+					joystick_centered = False				
+				
+				
+				
+			else:
+				# joystick deals with delete, Upper Case, comma and full stop
+				if (joystick_centered == True) & (joystick[0] < 12 ):
+					call ( ["/usr/bin/xdotool",  "key", "BackSpace"] )
+					joystick_centered = False
+				
+				if (joystick_centered == True) & (joystick[0] > 52 ):
+					call ( ["/usr/bin/xdotool",  "type", ", "] )
+					next_letter_uppercase = True
+					joystick_centered = False
+				
+				if (joystick_centered == True) & (joystick[1] < 12 ):
+					call ( ["/usr/bin/xdotool",  "type", ".  "] )
+					next_letter_uppercase = True
+					joystick_centered = False
+				
+				if (joystick_centered == True) & (joystick[1] > 52 ):
+					next_letter_uppercase = True
+					joystick_centered = False
+		
+		
+		if ( (joystick[0] > 28) & (joystick[0] < 36) ) &( (joystick[1] > 28) & (joystick[1] < 36) ):
+			joystick_centered = True
 			
 			
 
@@ -116,39 +165,15 @@ while (1):
 		if (whammy_released == True) & (whammy>20)  :
 			#sys.stdout.write( "\n" )
 			call ( ["/usr/bin/xdotool",  "key", "Return"] )
+			next_letter_uppercase = True
 			whammy_released = False
 			
 		if (whammy < 18):
 			whammy_released = True
-		
-		
-		
-		# joystick deals with delete, question mark, comma and full stop
-		
-		if (joystick_centered == True) & (joystick[0] < 12 ):
-			call ( ["/usr/bin/xdotool",  "key", "BackSpace"] )
-			joystick_centered = False
-		
-		if (joystick_centered == True) & (joystick[0] > 52 ):
-			call ( ["/usr/bin/xdotool",  "type", ", "] )
-			next_letter_uppercase = True
-			joystick_centered = False
-		
-		if (joystick_centered == True) & (joystick[1] < 12 ):
-			call ( ["/usr/bin/xdotool",  "type", ".  "] )
-			next_letter_uppercase = True
-			joystick_centered = False
-		
-		if (joystick_centered == True) & (joystick[1] > 52 ):
-			next_letter_uppercase = True
-			joystick_centered = False
-		
-		
-		if ( (joystick[0] > 28) & (joystick[0] < 36) ) &( (joystick[1] > 28) & (joystick[1] < 36) ):
-			joystick_centered = True
-		
+			
 
 	else:
+		# Wait for the wiimote to correctly configure itself
 		sleep(0.5) 
 
 
