@@ -5,7 +5,22 @@ SHREDBOARD - aka Gui-type Hero for Ubuntu
 This is a python tool that lets you treat a standard Nintendo Wii Guitar Hero as a chordal keyboard.
 It's very silly and probably useless, but surprisingly fun at the same time.
 
-You'll need to install xdotool and cwiid
+
+Installation:
+
+1. Get Ubuntu up and running (other distros will probably work fine but I don't have any to hand)
+
+
+2. You'll need to install python, xdotool and cwiid-python with a command like
+
+sudo aptitude install python xdotool cwiid-python
+
+
+3. Go into the /src/ directory and type "python sb.py", then pretty much immediately press the 
+1 and 2 buttons on the wii controller at the same time.  It should connect.
+
+
+
 
 
 
