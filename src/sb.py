@@ -118,11 +118,11 @@ while (1):
 				
 				# joystick deals with delete, Upper Case, comma and full stop
 				if (joystick_centered == True) & (joystick[0] < 12 ):
-					call ( ["/usr/bin/xdotool",  "key", "Right"] )
+					call ( ["/usr/bin/xdotool",  "key", "Left"] )
 					joystick_centered = False
 				
 				if (joystick_centered == True) & (joystick[0] > 52 ):
-					call ( ["/usr/bin/xdotool",  "key", "Left"] )
+					call ( ["/usr/bin/xdotool",  "key", "Right"] )
 					joystick_centered = False
 				
 				if (joystick_centered == True) & (joystick[1] < 12 ):
