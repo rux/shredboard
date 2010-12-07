@@ -143,7 +143,6 @@ while (1):
 				
 				if (joystick_centered == True) & (joystick[0] > 52 ):
 					call ( ["/usr/bin/xdotool",  "type", ", "] )
-					next_letter_uppercase = True
 					joystick_centered = False
 				
 				if (joystick_centered == True) & (joystick[1] < 12 ):
