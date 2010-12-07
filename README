@@ -1,0 +1,53 @@
+
+SHREDBOARD - aka Gui-type Hero for Ubuntu
+
+
+This is a python tool that lets you treat a standard Nintendo Wii Guitar Hero as a chordal keyboard.
+It's very silly and probably useless, but surprisingly fun at the same time.
+
+You'll need to install xdotool and cwiid
+
+
+
+I played with the letter config a fair amount, and settled on AEIOU as the single five buttons, then
+spread the other letters out primarily by distribution, but also by similarity of letter (b & d have
+the same shape, as do p & q and m & w).  Keeping Dvorak in mind, I tried to keep the th, sh, ch
+combinations close and near the red button.  Suggestions for improvements always welcome, obviously.
+
+" "  =  00000
+"a"  =  10000
+"e"  =  01000
+"i"  =  00100
+"o"  =  00010
+"u"  =  00001
+"t"  =  11000
+"s"  =  01100
+"r"  =  00110
+"f"  =  00011
+"h"  =  10100
+"l"  =  01010
+"v"  =  00101
+"c"  =  10010
+"k"  =  01001
+"n"  =  11100
+"g"  =  01110
+"y"  =  00111
+"d"  =  10110
+"b"  =  01011
+"p"  =  11010
+"q"  =  01101
+"j"  =  10011
+"x"  =  10101
+"m"  =  11110
+"w"  =  01111
+"z"  =  10111
+
+
+The stick has comma, full stop, delete and Upper-Case-The-Next-Letter.  Hold down the red button and
+the stick acts as arrow keys.
+
+Whammy bar is Enter.
+
+I've not done anything with the plus and minus yet.
+
+
